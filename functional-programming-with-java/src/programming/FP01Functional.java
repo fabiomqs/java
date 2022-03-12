@@ -29,13 +29,14 @@ public class FP01Functional {
 		// What to do?
 		numbers.stream() // Convert to Stream
 				// Filter with Method Reference
-				.filter(FP01Functional::isEven)//Filter - Only Allow Even Numbers
+				//.filter(FP01Functional::isEven)//Filter - Only Allow Even Numbers
+				.filter(number -> number % 2 == 0) // Lamdba Expression
 				.forEach(System.out::println);// Method Reference
 	}
 
-	private static boolean isEven(int number) {
-		return number%2 == 0;
-	}
+	//private static boolean isEven(int number) {
+	//	return number%2 == 0;
+	//}
 
 	//private static void print(int number) {
 	//	System.out.println(number);
