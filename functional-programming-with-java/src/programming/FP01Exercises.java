@@ -32,7 +32,13 @@ public class FP01Exercises {
 
 		//Exercise 5
 		//Print the cubes of odd numbers
-		printCubesOfOddNumbersInListFunctional(numbers);
+		//printCubesOfOddNumbersInListFunctional(numbers);
+
+		//Exercise 6
+		//Print the number of characters in each course name
+		courses.stream()
+				.map(course -> course + " -> " + course.length())
+				.forEach(System.out::println);
 	}
 
 	private static void printCubesOfOddNumbersInListFunctional(List<Integer> numbers) {
