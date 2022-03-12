@@ -7,7 +7,10 @@ public class FP01Functional {
 	
 	public static void main(String[] args) {
 		List<Integer> numbers = List.of(12, 9, 13, 4, 6, 2, 4, 12, 15);
-		 printAllNumbersInListFunctional(numbers);
+		//print all numbers
+		//printAllNumbersInListFunctional(numbers);
+		//print only even numbers
+		printEvenNumbersInListFunctional(numbers);
 	}
 
 	private static void printAllNumbersInListFunctional(List<Integer> numbers) {
@@ -19,6 +22,19 @@ public class FP01Functional {
 		//change the reference method to use directly from the classSystem.out
 				.forEach(System.out::println);// Method Reference
 
+	}
+
+	// number -> number%2 == 0
+	private static void printEvenNumbersInListFunctional(List<Integer> numbers) {
+		// What to do?
+		numbers.stream() // Convert to Stream
+				// Filter with Method Reference
+				.filter(FP01Functional::isEven)//Filter - Only Allow Even Numbers
+				.forEach(System.out::println);// Method Reference
+	}
+
+	private static boolean isEven(int number) {
+		return number%2 == 0;
 	}
 
 	//private static void print(int number) {
