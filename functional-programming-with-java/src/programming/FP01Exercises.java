@@ -5,7 +5,7 @@ import java.util.List;
 public class FP01Exercises {
 
 	public static void main(String[] args) {
-		//List<Integer> numbers = List.of(12, 9, 13, 4, 6, 2, 4, 12, 15);
+		List<Integer> numbers = List.of(12, 9, 13, 4, 6, 2, 4, 12, 15);
 		List<String> courses =
 				List.of("Spring", "Spring Boot", "API" , "Microservices",
 						"AWS", "PCF","Azure", "Docker", "Kubernetes");
@@ -26,9 +26,21 @@ public class FP01Exercises {
 
 		//Exercise 4
 		//Print Courses Whose Name has atleast 4 letters
-		courses.stream()
-				.filter(course -> course.length() >= 4)
-				.forEach(System.out::println);
+		//courses.stream()
+		//		.filter(course -> course.length() >= 4)
+		//		.forEach(System.out::println);
+
+		//Exercise 5
+		//Print the cubes of odd numbers
+		printCubesOfOddNumbersInListFunctional(numbers);
+	}
+
+	private static void printCubesOfOddNumbersInListFunctional(List<Integer> numbers) {
+		numbers.stream() // Convert to Stream
+				.filter(number -> number % 2 != 0) // Lamdba Expression
+				//mapping - x -> x * x
+				.map(number -> number * number * number)
+				.forEach(System.out::println);// Method Reference
 	}
 
 	// number -> number%2 != 0

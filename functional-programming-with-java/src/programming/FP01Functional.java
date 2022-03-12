@@ -9,8 +9,12 @@ public class FP01Functional {
 		List<Integer> numbers = List.of(12, 9, 13, 4, 6, 2, 4, 12, 15);
 		//print all numbers
 		//printAllNumbersInListFunctional(numbers);
+
 		//print only even numbers
-		printEvenNumbersInListFunctional(numbers);
+		//printEvenNumbersInListFunctional(numbers);
+
+		//Print Squares of even numbers with map
+		printSquaresOfEvenNumbersInListFunctional(numbers);
 	}
 
 	private static void printAllNumbersInListFunctional(List<Integer> numbers) {
@@ -33,6 +37,15 @@ public class FP01Functional {
 				.filter(number -> number % 2 == 0) // Lamdba Expression
 				.forEach(System.out::println);// Method Reference
 	}
+
+	private static void printSquaresOfEvenNumbersInListFunctional(List<Integer> numbers) {
+		numbers.stream() // Convert to Stream
+				.filter(number -> number % 2 == 0) // Lamdba Expression
+				//mapping - x -> x * x
+				.map(number -> number * number)
+				.forEach(System.out::println);// Method Reference
+	}
+
 
 	//private static boolean isEven(int number) {
 	//	return number%2 == 0;
