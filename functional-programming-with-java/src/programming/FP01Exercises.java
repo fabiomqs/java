@@ -2,8 +2,8 @@ package programming;
 
 import java.util.List;
 
-public class FP01Exercises { 
-	
+public class FP01Exercises {
+
 	public static void main(String[] args) {
 		//List<Integer> numbers = List.of(12, 9, 13, 4, 6, 2, 4, 12, 15);
 		List<String> courses =
@@ -20,8 +20,14 @@ public class FP01Exercises {
 
 		//Exercise 3
 		//Print Courses Containing the word "Spring"
+		//courses.stream()
+		//		.filter(course -> course.contains("Spring"))
+		//		.forEach(System.out::println);
+
+		//Exercise 4
+		//Print Courses Whose Name has atleast 4 letters
 		courses.stream()
-				.filter(course -> course.contains("Spring"))
+				.filter(course -> course.length() >= 4)
 				.forEach(System.out::println);
 	}
 
