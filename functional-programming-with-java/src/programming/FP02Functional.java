@@ -12,8 +12,15 @@ public class FP02Functional {
 		//int sum = addListFunctional(numbers);
 		//System.out.println(sum);
 
-		List<Integer> squaredNumbers = squareList(numbers);
-		System.out.println(squaredNumbers);
+		//List<Integer> squaredNumbers = squareList(numbers);
+		//System.out.println(squaredNumbers);
+
+		//Exercise 10
+		//Create a List with Even Numbers Filtered from the Numbers List
+		List<Integer> evenNumbersOnly = numbers.stream()
+				.filter(x -> x%2==0)
+				.collect(Collectors.toList());
+		System.out.println(evenNumbersOnly);
 
 	}
 
