@@ -1,6 +1,7 @@
 package programming;
 
 import java.util.List;
+import java.util.function.BinaryOperator;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -64,6 +65,26 @@ public class FP03FunctionalInterfaces {
 		//		.map(x -> x*x)
 				//.forEach(x -> System.out.println(x));
 		//		.forEach(System.out::println);
+
+
+		//Exercise 12
+		//Find Functional Interface behind the second argument of reduce method.
+		// Create an implementation for the Functional Interface.
+		//int sum = numbers.stream()
+		//		.reduce(0, Integer::sum);
+
+		BinaryOperator<Integer> sumBinaryOperator = Integer::sum;
+		//BinaryOperator<Integer> sumBinaryOperator = (x,y) => x + y;
+
+		BinaryOperator<Integer> sumBinaryOperator2 = new BinaryOperator<Integer>() {
+			@Override
+			public Integer apply(Integer a, Integer b) {
+				return a + b;
+			}
+		};
+
+		int sum = numbers.stream()
+				.reduce(0, sumBinaryOperator2);
 
 	}
 }
