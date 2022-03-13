@@ -1,6 +1,9 @@
 package programming;
 
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 
 public class FP03FunctionalInterfaces {
@@ -21,13 +24,25 @@ public class FP03FunctionalInterfaces {
 		
 		List<Integer> numbers = List.of(12, 9, 13, 4, 6, 2, 4, 12, 15);
 
+		Predicate<Integer> isEvenPredicate = x -> x%2==0;
+		Function<Integer, Integer> squareFunction = x -> x * x;
+		Consumer<Integer> sysoutConsumer = System.out::println;
+
 		numbers.stream()
+				.filter(isEvenPredicate)
+				.map(squareFunction)
+				.forEach(sysoutConsumer);
+
+
+
+
+		//numbers.stream()
 					//comment 01 - lambda expression represent a method
-				.filter(x -> x%2==0)
+		//		.filter(x -> x%2==0)
 					//comment 02
-				.map(x -> x*x)
+		//		.map(x -> x*x)
 				//.forEach(x -> System.out.println(x));
-				.forEach(System.out::println);
+		//		.forEach(System.out::println);
 
 	}
 }
