@@ -8,6 +8,9 @@ public class FP02Functional {
 	public static void main(String[] args) {
 
 		List<Integer> numbers = List.of(12, 9, 13, 4, 6, 2, 4, 12, 15);
+		List<String> courses =
+				List.of("Spring", "Spring Boot", "API" , "Microservices",
+						"AWS", "PCF","Azure", "Docker", "Kubernetes");
 
 		//int sum = addListFunctional(numbers);
 		//System.out.println(sum);
@@ -17,11 +20,17 @@ public class FP02Functional {
 
 		//Exercise 10
 		//Create a List with Even Numbers Filtered from the Numbers List
-		List<Integer> evenNumbersOnly = numbers.stream()
-				.filter(x -> x%2==0)
-				.collect(Collectors.toList());
-		System.out.println(evenNumbersOnly);
+		//List<Integer> evenNumbersOnly = numbers.stream()
+		//		.filter(x -> x%2==0)
+		//		.collect(Collectors.toList());
+		//System.out.println(evenNumbersOnly);
 
+		//Exercise 11
+		//Create a List with lengths of all course titles.
+		List<Integer> coursesTextLength = courses.stream()
+				.map(x -> x.length())
+				.collect(Collectors.toList());
+		System.out.println(coursesTextLength);
 	}
 
 	//using collect
