@@ -9,10 +9,19 @@ public class FP02Functional {
 
 		List<Integer> numbers = List.of(12, 9, 13, 4, 6, 2, 4, 12, 15);
 
-		int sum = addListFunctional(numbers);
+		//int sum = addListFunctional(numbers);
+		//System.out.println(sum);
 
-		System.out.println(sum);
+		List<Integer> squaredNumbers = squareList(numbers);
+		System.out.println(squaredNumbers);
 
+	}
+
+	//using collect
+	private static List<Integer> squareList(List<Integer> numbers) {
+		return numbers.stream()
+				.map(number -> number * number)
+				.collect(Collectors.toList());
 	}
 
 	//functional sum using reduce
