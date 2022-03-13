@@ -21,14 +21,15 @@ public class FP02Functional {
 		//Combine them into one result => One Value
 		// 0 and FP02Functional::sum
 		return numbers.stream()
-				.reduce(0, FP02Functional::sum);
+				//.reduce(0, FP02Functional::sum);
+			.reduce(0, (x,y) -> x+y); //using lambda
 
 	}
 
-	private static int sum(int aggregate, int nextNumber) {
-
-		return aggregate + nextNumber;
-	}
+//	private static int sum(int aggregate, int nextNumber) {
+//		System.out.println(aggregate + " " + nextNumber);
+//		return aggregate + nextNumber;
+//	}
 	
 
 }
