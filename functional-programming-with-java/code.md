@@ -1,7 +1,3 @@
-<!---
-Current Directory : /in28Minutes/git/functional-programming-with-java
--->
-
 ## JShell Commands Executed
 
 ```java
@@ -13,10 +9,17 @@ List<Integer> numbers = List.of(12, 9, 13, 4, 6, 2, 4, 12, 15);
 numbers.stream().reduce(0, (x,y)->x+y)
 numbers.stream().reduce(0, (x,y)->x)
 numbers.stream().reduce(0, (x,y)->y)
+
+//return the max positive number
 numbers.stream().reduce(0, (x,y)-> x>y ? x:y)
 
+//return the max number
 numbers.stream().reduce(Integer.MIN_VALUE, (x,y)-> x>y ? x:y)
+
+//return the min number wich is Integer.MIN_VALUE
 numbers.stream().reduce(Integer.MIN_VALUE, (x,y)-> x>y ? y:x)
+
+//return the min number correct starting value
 numbers.stream().reduce(Integer.MAX_VALUE, (x,y)-> x>y ? y:x)
 
 numbers.stream().reduce(0, (x,y) -> x*x + y*y)
