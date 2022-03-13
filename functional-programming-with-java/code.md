@@ -22,7 +22,12 @@ numbers.stream().reduce(Integer.MIN_VALUE, (x,y)-> x>y ? y:x)
 //return the min number correct starting value
 numbers.stream().reduce(Integer.MAX_VALUE, (x,y)-> x>y ? y:x)
 
+//Exercise 7
+//this does not solve the problem, reduce not applicable
 numbers.stream().reduce(0, (x,y) -> x*x + y*y)
+
+//Square every number in a list and find the sum of squares
+//use map before de reduce.
 numbers.stream().map(x -> x*x).reduce(0, Integer::sum)
 numbers.stream().map(x -> x*x*x).reduce(0, Integer::sum)
 
