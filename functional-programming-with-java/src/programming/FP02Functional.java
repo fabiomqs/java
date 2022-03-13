@@ -22,7 +22,8 @@ public class FP02Functional {
 		// 0 and FP02Functional::sum
 		return numbers.stream()
 				//.reduce(0, FP02Functional::sum);
-			.reduce(0, (x,y) -> x+y); //using lambda
+			//.reduce(0, (x,y) -> x+y); //using lambda
+			.reduce(0, Integer::sum);//using Integer::sum
 
 	}
 
