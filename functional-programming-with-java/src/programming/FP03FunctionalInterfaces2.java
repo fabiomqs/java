@@ -40,13 +40,14 @@ public class FP03FunctionalInterfaces2 {
 		
 		UnaryOperator<Integer> unaryOperator = x -> 3 * x;
 		System.out.println(unaryOperator.apply(10));
-		
+		// default return is boolean
 		BiPredicate<Integer, String> biPredicate = (number,str) -> {
 			return number<10 && str.length()>5;
 		};
 		
 		System.out.println(biPredicate.test(10, "in28minutes"));
-		
+
+		//third parameter is the return type
 		BiFunction<Integer, String, String> biFunction = (number,str) -> {
 			return number + " " + str;
 		};
