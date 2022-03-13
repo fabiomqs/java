@@ -34,8 +34,13 @@ numbers.stream().map(x -> x*x).reduce(0, Integer::sum)
 //Cube every number in a list and find the sum of cubes
 numbers.stream().map(x -> x*x*x).reduce(0, Integer::sum)
 
+//Exercise 9 
+//Find Sum of Odd Numbers in a list
 numbers.stream().filter(x -> x%2==1).reduce(0, Integer::sum)
+//Find Sum of Even Numbers in a list
 numbers.stream().filter(x -> x%2==0).reduce(0, Integer::sum)
+
+
 
 numbers.stream().distinct().forEach(System.out::println)
 
