@@ -29,6 +29,9 @@ numbers.stream().reduce(0, (x,y) -> x*x + y*y)
 //Square every number in a list and find the sum of squares
 //use map before de reduce.
 numbers.stream().map(x -> x*x).reduce(0, Integer::sum)
+
+//Exercise 8 
+//Cube every number in a list and find the sum of cubes
 numbers.stream().map(x -> x*x*x).reduce(0, Integer::sum)
 
 numbers.stream().filter(x -> x%2==1).reduce(0, Integer::sum)
