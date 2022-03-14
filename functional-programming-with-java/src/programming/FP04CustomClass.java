@@ -19,7 +19,10 @@ public class FP04CustomClass {
 				new Course("Docker", "Cloud", 92, 20000),
 				new Course("Kubernetes", "Cloud", 91, 20000));
 
-
+		//*********************************************************************
+		// allMatch, noneMatch, anyMatch
+		//*********************************************************************
+		System.out.println("allMatch, noneMatch, anyMatch");
 		Predicate<Course> reviewScoreGreaterThan95Predicate
 				= course -> course.getReviewScore() > 95;
 
@@ -29,7 +32,6 @@ public class FP04CustomClass {
 		Predicate<Course> reviewScoreLessThan90Predicate
 				= course -> course.getReviewScore() < 90;
 
-		// allMatch, noneMatch, anyMatch
 		System.out.println(courses.stream().allMatch(reviewScoreGreaterThan95Predicate));
 
 		System.out.println(courses.stream().noneMatch(reviewScoreLessThan90Predicate));
@@ -37,6 +39,48 @@ public class FP04CustomClass {
 		System.out.println(courses.stream().anyMatch(reviewScoreLessThan90Predicate));
 
 		System.out.println(courses.stream().anyMatch(reviewScoreGreaterThan95Predicate));
+
+		//*********************************************************************
+
+		System.out.println("--------------------------------------------------");
+
+		//*********************************************************************
+		//Class with sorted and creating comparators
+		//*********************************************************************
+		System.out.println("Class with sorted and creating comparators");
+		//comparingInt is mor efficient than comparing because uses the primitive type
+		Comparator<Course> comparingByNoOfStudentsIncreasing
+				= Comparator.comparingInt(Course::getNoOfStudents);
+
+		System.out.println(
+				courses.stream()
+						.sorted(comparingByNoOfStudentsIncreasing)
+						.collect(Collectors.toList()));
+
+		Comparator<Course> comparingByNoOfStudentsDecreasing
+				= Comparator.comparingInt(Course::getNoOfStudents).reversed();
+
+		System.out.println(
+				courses.stream()
+						.sorted(comparingByNoOfStudentsDecreasing)
+						.collect(Collectors.toList()));
+
+		//comparing with multiple properties
+		//sort by NoOfStudents
+		// if noOfStudents is the same sort by reviewScore
+		Comparator<Course> comparingByNoOfStudentsAndNoOfReviews
+				= Comparator.comparingInt(Course::getNoOfStudents)
+				.thenComparingInt(Course::getReviewScore)
+				.reversed();
+
+		System.out.println(
+				courses.stream()
+						.sorted(comparingByNoOfStudentsAndNoOfReviews)
+						.collect(Collectors.toList()));
+
+		//*********************************************************************
+
+		System.out.println("--------------------------------------------------");
 	}
 
 
