@@ -64,6 +64,9 @@ Supplier<String> supplier = () -> {return "Ranga";};
 
 Consumer<String> consumer = (str) -> { System.out.println(str);System.out.println(str);};
 
+//******************************************************************
+//Creating Streams using Stream of method and for Arrays
+//******************************************************************
 List<Integer> numbers = List.of(12, 9, 13, 4, 6, 2, 4, 12, 15);
 numbers.stream()
 
@@ -71,12 +74,16 @@ Stream.of(12, 9, 13, 4, 6, 2, 4, 12, 15).count()
 Stream.of(12, 9, 13, 4, 6, 2, 4, 12, 15).reduce(0, Integer::sum)
 Stream.of(12, 9, 13, 4, 6, 2, 4, 12, 15)
 
+//creating stream with primitive values
 int[] numberArray = {12, 9, 13, 4, 6, 2, 4, 12, 15};
 Arrays.stream(numberArray)
 Arrays.stream(numberArray).sum()
 Arrays.stream(numberArray).average()
 Arrays.stream(numberArray).min()
 Arrays.stream(numberArray).max()
+
+//******************************************************************
+
 
 IntStream.range(1,10)
 IntStream.range(1,10).sum()
