@@ -125,6 +125,49 @@ public class FP04CustomClass {
 
 		System.out.println("--------------------------------------------------");
 
+
+		//*********************************************************************
+		//Finding top, max and min courses with max, min, findFirst and findAny
+		//*********************************************************************
+		System.out.println("Finding top, max and min courses with max, min, findFirst and findAny");
+
+		System.out.println(
+				courses.stream()
+						//return the last element of the list after sort
+						.max(comparingByNoOfStudentsAndNoOfReviews));
+
+		System.out.println(
+				courses.stream()
+						//return the first element
+						.min(comparingByNoOfStudentsAndNoOfReviews)
+						.orElse(new Course("Kubernetes",
+								"Cloud", 91, 20000)));
+
+		System.out.println(
+				courses.stream()
+						.filter(reviewScoreLessThan90Predicate)
+						.min(comparingByNoOfStudentsAndNoOfReviews)
+						.orElse(new Course("Kubernetes",
+								"Cloud", 91, 20000)));
+
+		System.out.println(
+				courses.stream()
+						.filter(reviewScoreLessThan90Predicate)
+						.findFirst());
+
+		System.out.println(
+				courses.stream()
+						.filter(reviewScoreGreaterThan95Predicate)
+						.collect(Collectors.toList()));
+
+		System.out.println(
+				courses.stream()
+						.filter(reviewScoreGreaterThan95Predicate)
+						.findFirst());
+
+		//*********************************************************************
+
+		System.out.println("--------------------------------------------------");
 	}
 
 
