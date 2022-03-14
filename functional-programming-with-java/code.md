@@ -84,16 +84,25 @@ Arrays.stream(numberArray).max()
 
 //******************************************************************
 
+//******************************************************************
+//Creating Streams for First 100 Numbers, Squares of Numbers and More
+//******************************************************************
 
 IntStream.range(1,10)
+//not include 10
 IntStream.range(1,10).sum()
+//include 10
 IntStream.rangeClosed(1,10).sum()
 
 IntStream.iterate(1, e -> e + 2).limit(10).sum()
 IntStream.iterate(1, e -> e + 2).limit(10).peek(System.out::println).sum()
 IntStream.iterate(2, e -> e + 2).limit(10).peek(System.out::println).sum()
 IntStream.iterate(2, e -> e * 2).limit(10).peek(System.out::println).sum()
+//boxed wrap the primitive into a object
 IntStream.iterate(2, e -> e * 2).limit(10).boxed().collect(Collectors.toList())
+
+//******************************************************************
+
 
 Integer.MAX_VALUE
 Long.MAX_VALUE
