@@ -103,6 +103,9 @@ IntStream.iterate(2, e -> e * 2).limit(10).boxed().collect(Collectors.toList())
 
 //******************************************************************
 
+//******************************************************************
+//Doing Big Number calculations with BigInteger
+//******************************************************************
 
 Integer.MAX_VALUE
 Long.MAX_VALUE
@@ -114,6 +117,10 @@ LongStream.rangeClosed(1,10).reduce(1, (x,y)->x*y)
 LongStream.rangeClosed(1,20).reduce(1, (x,y)->x*y)
 LongStream.rangeClosed(1,40).reduce(1, (x,y)->x*y)
 LongStream.rangeClosed(1,50).mapToObj(BigInteger::valueOf).reduce(BigInteger.ONE, BigInteger::multiply)
+
+//******************************************************************
+
+
 
 courses.stream().collect(Collectors.joining(" "))
 courses.stream().collect(Collectors.joining(","))
