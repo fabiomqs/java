@@ -165,6 +165,52 @@ public class FP04CustomClass {
 						.filter(reviewScoreGreaterThan95Predicate)
 						.findFirst());
 
+		System.out.println(
+				courses.stream()
+						.filter(reviewScoreGreaterThan95Predicate)
+						.findAny());
+
+		//*********************************************************************
+
+		System.out.println("--------------------------------------------------");
+
+		System.out.println(
+				courses.stream()
+						.filter(reviewScoreGreaterThan95Predicate)
+						.mapToInt(Course::getNoOfStudents)
+						.sum());
+
+		System.out.println(
+				courses.stream()
+						.filter(reviewScoreGreaterThan95Predicate)
+						.mapToInt(Course::getNoOfStudents)
+						.average());
+
+		System.out.println(
+				courses.stream()
+						.filter(reviewScoreGreaterThan95Predicate)
+						.mapToInt(Course::getNoOfStudents)
+						.count());
+
+		System.out.println(
+				courses.stream()
+						.filter(reviewScoreGreaterThan95Predicate)
+						.mapToInt(Course::getNoOfStudents)
+						.max());
+
+		System.out.println(
+				courses.stream()
+						.filter(reviewScoreGreaterThan95Predicate)
+						.mapToInt(Course::getNoOfStudents)
+						.min());
+
+		//*********************************************************************
+		//sum, average and count
+		//*********************************************************************
+		System.out.println("sum, average and count");
+
+
+
 		//*********************************************************************
 
 		System.out.println("--------------------------------------------------");
