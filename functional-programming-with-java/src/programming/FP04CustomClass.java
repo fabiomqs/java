@@ -81,6 +81,50 @@ public class FP04CustomClass {
 		//*********************************************************************
 
 		System.out.println("--------------------------------------------------");
+
+
+		//*********************************************************************
+		//skip, limit, takeWhile and dropWhile
+		//*********************************************************************
+		System.out.println("skip, limit, takeWhile and dropWhile");
+
+		System.out.println(
+				courses.stream()
+						.sorted(comparingByNoOfStudentsAndNoOfReviews)
+						.limit(5)
+						.collect(Collectors.toList()));
+
+		System.out.println(
+				courses.stream()
+						.sorted(comparingByNoOfStudentsAndNoOfReviews)
+						.skip(3) //skip the first 3 courses
+						.collect(Collectors.toList()));
+
+		System.out.println(
+				courses.stream()
+						.sorted(comparingByNoOfStudentsAndNoOfReviews)
+						.skip(3)
+						.limit(5)
+						.collect(Collectors.toList()));
+
+		System.out.println(courses);
+
+		System.out.println(
+				courses.stream()
+						//includes evething until match the criteria then drops evething else
+						.takeWhile(course -> course.getReviewScore()>=95)
+						.collect(Collectors.toList()));
+
+		System.out.println(
+				courses.stream()
+						//drop evething until match the criteria
+						.dropWhile(course -> course.getReviewScore()>=95)
+						.collect(Collectors.toList()));
+
+		//*********************************************************************
+
+		System.out.println("--------------------------------------------------");
+
 	}
 
 
