@@ -212,6 +212,59 @@ public class FP04CustomClass {
 		//*********************************************************************
 
 		System.out.println("--------------------------------------------------");
+
+
+		//*********************************************************************
+		//Grouping courses into Map using groupingBy
+		//*********************************************************************
+		System.out.println("Grouping courses into Map using groupingBy");
+
+
+		System.out.println(
+				courses.stream()
+						.collect(Collectors.groupingBy(Course::getCategory)));
+		//{ Cloud=[AWS:21000:92, Azure:21000:99, Docker:20000:92, Kubernetes:20000:91],
+		//  FullStack=[FullStack:14000:91],
+		//  Microservices=[API:22000:97, Microservices:25000:96],
+		//  Framework=[Spring:20000:98, Spring Boot:18000:95]}
+
+		System.out.println(
+				courses.stream()
+						.collect(Collectors.groupingBy(Course::getCategory, Collectors.counting())));
+		//{Cloud=4, FullStack=1, Microservices=2, Framework=2}
+
+		System.out.println(
+				courses.stream()
+						.collect(Collectors.groupingBy(
+										Course::getCategory,
+										Collectors.maxBy(Comparator.comparing(Course::getReviewScore)))));
+		//{ Cloud=Optional[Azure:21000:99],
+		//  FullStack=Optional[FullStack:14000:91],
+		//  Microservices=Optional[API:22000:97],
+		//  Framework=Optional[Spring:20000:98]}
+
+		System.out.println(
+				courses.stream()
+						.collect(Collectors.groupingBy(
+										Course::getCategory,
+										Collectors.mapping(Course::getName, Collectors.toList()))));
+		//{ Cloud=[AWS, Azure, Docker, Kubernetes],
+		//  FullStack=[FullStack],
+		//  Microservices=[API, Microservices],
+		//  Framework=[Spring, Spring Boot]}
+
+
+		Predicate<Course> reviewScoreGreaterThan95Predicate2
+				= createPredicateWithCutoffReviewScore(95);
+
+		Predicate<Course> reviewScoreGreaterThan90Predicate2
+				= createPredicateWithCutoffReviewScore(90);
+
+		//*********************************************************************
+	}
+
+	private static Predicate<Course> createPredicateWithCutoffReviewScore(int cutoffReviewScore) {
+		return course -> course.getReviewScore() > cutoffReviewScore;
 	}
 
 
