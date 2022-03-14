@@ -174,6 +174,11 @@ public class FP04CustomClass {
 
 		System.out.println("--------------------------------------------------");
 
+		//*********************************************************************
+		//sum, average and count
+		//*********************************************************************
+		System.out.println("sum, average and count");
+
 		System.out.println(
 				courses.stream()
 						.filter(reviewScoreGreaterThan95Predicate)
@@ -203,13 +208,6 @@ public class FP04CustomClass {
 						.filter(reviewScoreGreaterThan95Predicate)
 						.mapToInt(Course::getNoOfStudents)
 						.min());
-
-		//*********************************************************************
-		//sum, average and count
-		//*********************************************************************
-		System.out.println("sum, average and count");
-
-
 
 		//*********************************************************************
 
