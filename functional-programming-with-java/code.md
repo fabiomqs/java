@@ -174,6 +174,9 @@ $4.findFirst()//Change $4 to your variable name
 //******************************************************************
 
 
+//******************************************************************
+//Modifying lists with replaceAll and removeIf
+//******************************************************************
 
 List<String> courses = List.of("Spring", "Spring Boot", "API" , "Microservices","AWS", "PCF","Azure", "Docker", "Kubernetes");
 
@@ -183,6 +186,9 @@ List<String> modifyableCourses = new ArrayList(courses);
 
 modifyableCourses.replaceAll(str -> str.toUpperCase())
 modifyableCourses.removeIf(course -> course.length()<6)
+
+//******************************************************************
+
 
 Runnable runnable3 = () -> IntStream.range(0, 10000).forEach(i -> System.out.println(Thread.currentThread().getId() + ":" + i))
 
