@@ -121,17 +121,24 @@ LongStream.rangeClosed(1,50).mapToObj(BigInteger::valueOf).reduce(BigInteger.ONE
 //******************************************************************
 
 
+//******************************************************************
+//Joining Strings with joining and Playing with flapMap
+//******************************************************************
 
+// Join the strings separated by space and comma
 courses.stream().collect(Collectors.joining(" "))
 courses.stream().collect(Collectors.joining(","))
 
 "Spring".split("")
+//$2 ==> String[6] { "S", "p", "r", "i", "n", "g" }
 
 courses.stream().map(course -> course.split("")).collect(Collectors.toList())
 
 courses.stream().map(course -> course.split(""))
+//returns a stream of string arrays 
 
 courses.stream().map(course -> course.split("")).flatMap(Arrays::stream).collect(Collectors.toList())
+//flat the stream of string arrays to an stram of arrays
 
 courses.stream().map(course -> course.split("")).flatMap(Arrays::stream).distinct().collect(Collectors.toList())
 
@@ -147,6 +154,9 @@ courses.stream().flatMap(course -> courses2.stream().map(course2 -> List.of(cour
 courses.stream().flatMap(course -> courses2.stream().map(course2 -> List.of(course,course2))).filter(list -> !list.get(0).equals(list.get(1))).collect(Collectors.toList())
 
 courses.stream().flatMap(course -> courses2.stream().filter(course2 -> course2.length()==course.length()).map(course2 -> List.of(course,course2))).filter(list -> !list.get(0).equals(list.get(1))).collect(Collectors.toList())
+
+//******************************************************************
+
 
 courses.stream().filter(courses -> courses.length()>11).map(String::toUpperCase).findFirst()
 
