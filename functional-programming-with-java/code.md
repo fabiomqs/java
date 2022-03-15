@@ -1,5 +1,6 @@
 ## JShell Commands Executed
-
+run: jshell
+quit: /ex
 ```java
 
 System.out.println("Ranga")
@@ -158,6 +159,10 @@ courses.stream().flatMap(course -> courses2.stream().filter(course2 -> course2.l
 //******************************************************************
 
 
+//******************************************************************
+//FP and Performance - Intermediate Stream Operations are Lazy
+//******************************************************************
+
 courses.stream().filter(courses -> courses.length()>11).map(String::toUpperCase).findFirst()
 
 courses.stream().peek(System.out::println).filter(courses -> courses.length()>11).map(String::toUpperCase).peek(System.out::println).findFirst()
@@ -165,6 +170,10 @@ courses.stream().peek(System.out::println).filter(courses -> courses.length()>11
 courses.stream().peek(System.out::println).filter(courses -> courses.length()>11).map(String::toUpperCase).peek(System.out::println)
 
 $4.findFirst()//Change $4 to your variable name
+
+//******************************************************************
+
+
 
 List<String> courses = List.of("Spring", "Spring Boot", "API" , "Microservices","AWS", "PCF","Azure", "Docker", "Kubernetes");
 
